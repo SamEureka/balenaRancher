@@ -1,0 +1,14 @@
+version: '2.1'
+services:
+  worker-node:
+    build: ./hand
+    privileged: true
+    labels:
+      io.balena.features.balena-socket: 1
+    environment:
+      - K3S_TOKEN=K10b96aa05b1b2424789fa5897ab42f59be4dbe231daa8d0467fe61454c85718d2b::server:6af5603cb2ddf240c2ffa0772446320f
+      - CATTLE_TOKEN=K10b96aa05b1b2424789fa5897ab42f59be4dbe231daa8d0467fe61454c85718d2b::server:6af5603cb2ddf240c2ffa0772446320f
+      - CATTLE_SERVER=https://192.168.86.150:6443
+      - K3S_URL=https://192.168.86.150:6443
+    network_mode: host
+    restart: always

@@ -1,0 +1,4 @@
+FROM ubuntu:focal
+RUN apt-get update && apt-get install -y curl
+COPY start.sh ./
+CMD ["bash", "start.sh"]
