@@ -1,0 +1,7 @@
+FROM balenalib/%%BALENA_MACHINE_NAME%%-alpine:3.15
+RUN install_packages curl jq
+RUN mkdir /opt/k3s
+WORKDIR /opt/k3s
+RUN curl -sLJO https://github.com/k3s-io/k3s/releases/download/v1.21.3%2Bk3s1/k3s-arm64 && chmod +x k3s-arm64
+COPY start.sh ./
+CMD ["/bin/bash", "start.sh"]
