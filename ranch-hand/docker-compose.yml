@@ -1,0 +1,18 @@
+version: '2.1'
+services:
+  ranch-hand:
+    build: ./hand
+    privileged: true
+    volumes:
+      - rancher:/var/lib/rancher/
+    labels:
+      io.balena.features.dbus: '1'
+      io.balena.features.sysfs: '1'
+      io.balena.features.procfs: '1'
+      io.balena.features.balena-socket: '1'
+      io.balena.features.supervisor-api: '1'
+      io.balena.features.balena-api: '1'
+    network_mode: host
+    restart: always
+volumes:
+  rancher:
