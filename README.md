@@ -1,6 +1,6 @@
 # <img src="logo.png" alt="rancher steer" width="60" /> balenaRancher
 
-Use balenaRancher to easily deploy a Raspberry Pi 4 based kubernetes cluster with a Rancher server and k3s worker nodes. The deployment is slightly more complex than your typical BalenaCloud deployment... but this is kubernetes, so it's never 'easy'!
+Use balenaRancher to easily deploy a Raspberry Pi4 based kubernetes cluster with a Rancher server and k3s worker nodes. The deployment is slightly more complex than your typical BalenaCloud deployment... but this is kubernetes, so it's never 'easy'!
 
 ## Equipment / Software needed
 
