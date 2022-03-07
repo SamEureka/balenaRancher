@@ -39,7 +39,7 @@ _these are the barebones instructions to get you started... better instructions 
 13. Now that you have the fleet device variables set, you can add new nodes by provisioning a device and pinning the 'ranch-hand' release to the device. It will automatically join the rancher cluster.
 
 ### Note:
-When the worker nodes (ranch-hands) reboot, they don't always re-join the cluster correctly. You may have to delete duplicate nodes in the Rancher UI. This isn't a desired behavior and I'm working on fixing it.
+<s>When the worker nodes (ranch-hands) reboot, they don't always re-join the cluster correctly. You may have to delete duplicate nodes in the Rancher UI. This isn't a desired behavior and I'm working on fixing it.</s> [Fixed](https://github.com/SamEureka/balenaRancher/pull/5)
 
 ### Environment Variables
 
