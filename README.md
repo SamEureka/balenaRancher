@@ -39,7 +39,8 @@ This project assumes a fairly advanced level of knowledge about BalenaCloud and 
 ### Environment Variables
 
 |Name|Value|
-|*|*|
+|---|---|
 |K3S_TOKEN|output of the command `cat /var/lib/rancher/k3s/server/node-token` executed on the rancher server|
 |K3S_URL|Url that the worker node uses to connect to the Rancher server. `https://<rancher server ip>:6443`|
 |CATTLE_BOOTSTRAP_PASSWORD|Creates the default password for the `admin` account in the Rancher UI. Default value is `b@13n4!`|
+| | |
