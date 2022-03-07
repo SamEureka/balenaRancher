@@ -36,6 +36,7 @@ _these are the barebones instructions to get you started... better instructions 
 10. Use the balena-cli to push a release for your worker-nodes. In this example the fleet is called balenaRancher. `balena push balenaRancher --release-tag ranch-hand --draft` again, it is important to use the --release-tag and --draft flags to make sure that you can identify the correct release and prevent the ranch-hand release from automatically installing to your server.
 11. Log into balenaCloud console and find the device you want to use for your worker node. Pin the device to the release tagged `ranch-hand` ([pinning device to release](https://www.balena.io/docs/learn/deploy/release-strategy/release-policy/#pin-device-to-a-release))
 12. When the ranch-hand node is done initiallizing, you should see an additional node in the Rancher server UI.
+13. Now that you have the fleet device variables set, you can add new nodes by provisioning a device and pinning the 'ranch-hand' release to the device. It will automatically join the rancher cluster. 
 
 ### Environment Variables
 
