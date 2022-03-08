@@ -11,7 +11,10 @@ Use balenaRancher to easily deploy a Raspberry Pi4 based kubernetes cluster with
 ## Install / Config / Deploy
 
 ### BalenaCloud setup
-This project assumes a fairly advanced level of knowledge about BalenaCloud and the steps to create a new fleet. If this is your first time deploying a project, we recommend familiarizing yourself with BalenaCloud by following the steps in this [Getting started](https://www.balena.io/docs/learn/getting-started/raspberrypi4-64/nodejs/) tutorial and then coming back here to deploy your Rancher server and ranch-hand worker nodes.  
+This project assumes a fairly advanced level of knowledge about BalenaCloud and the steps to create a new fleet. If this is your first time deploying a project, we recommend familiarizing yourself with BalenaCloud by following the steps in this [Getting started](https://www.balena.io/docs/learn/getting-started/raspberrypi4-64/nodejs/) tutorial and then coming back here to deploy your Rancher server and ranch-hand worker nodes.
+
+1. Create a new fleet in balenaCloud and name it `balenaRancher`.
+2. Add a device to your new fleet.
 
 ### balenaRancher setup 
 _these are the barebones instructions to get you started... better instructions are planned_
