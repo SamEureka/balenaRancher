@@ -1,0 +1,7 @@
+FROM rancher/rancher:v2.6.0-linux-arm64
+RUN zypper -n in libpython3_6m1_0 python3 python3-base \
+    python3-appdirs python3-packaging python3-pip \
+    python3-pyparsing python3-setuptools python3-six
+RUN pip install balena-sdk
+COPY ./token-wrangler.py /var/lib/rancher/token-wrangler.py
+CMD ["python3", "/var/lib/rancher/token-wrangler.py"]

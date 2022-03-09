@@ -1,7 +1,7 @@
 version: '2'
 services:
   rancher:
-    image: rancher/rancher:v2.6.0-linux-arm64
+    build: ./rancher
     privileged: true
     volumes:
       - rancher:/var/lib/rancher
