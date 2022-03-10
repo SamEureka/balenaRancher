@@ -4,6 +4,6 @@ RUN zypper -nq in libpython3_6m1_0 python3 python3-base \
     python3-pyparsing python3-setuptools python3-six
 RUN pip install -qqq balena-sdk
 RUN mkdir /balena 
-COPY . ./balena/
-RUN chmod +x start.sh
-CMD ["/bin/bash", "start.sh"]
+COPY . /balena/
+RUN chmod +x /balena/start.sh
+CMD ["/bin/bash", "/balena/start.sh"]
