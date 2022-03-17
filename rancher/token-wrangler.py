@@ -25,7 +25,7 @@ def generateURL(uuid, token):
   api.auth.login_with_token(token)
   for ip_add in device.get_local_ip_address(uuid):
     if not re.search('10.42', ip_add):
-      return 'http://{}:6443'.format(ip_add)
+      return 'https://{}:6443'.format(ip_add)
 
 def getAppVars(app_id, token):
   api.auth.login_with_token(token)
