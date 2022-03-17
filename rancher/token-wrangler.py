@@ -5,7 +5,6 @@ import os
 import re
 from time import sleep
 from os.path import exists, isfile
-from turtle import up
 import balena
 
 # Change these variables to the Application Environment Variable that you want to add/update
@@ -25,7 +24,7 @@ device = api.models.device
 def generateURL(uuid, token):
   api.auth.login_with_token(token)
   for ip_add in device.get_local_ip_address(uuid):
-    if not re.search('10.42', ip_add)
+    if not re.search('10.42', ip_add):
       return 'http://{}:6443'.format(ip_add)
 
 def getAppVars(app_id, token):
@@ -38,10 +37,8 @@ def getVarId(app_id, token, var):
 def updateOrAddAppVar(app_id, token, var, var_val):
   if var in [i['name'] for i in getAppVars(app_id, token)]:
     appVariables.update(getVarId(app_id, token, var)[0], var_val)
-    print('K3S_Token updated: ', var_val)
   else:
     appVariables.create(app_id, var, var_val)
-    print('K3S_Token created: ', var_val)
 
 while not exists(token_path):
   sleep(2)
