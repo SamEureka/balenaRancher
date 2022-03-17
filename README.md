@@ -16,7 +16,7 @@ This project assumes a fairly advanced level of knowledge about BalenaCloud and 
 1. Create a new fleet in balenaCloud and name it `balenaRancher`.
 2. Go to [access-tokens](https://dashboard.balena-cloud.com/preferences/access-tokens) and click on the `Create API key` button to create an API key. Copy this key somewhere safe before moving to the next step. We are going to need the key and it is only displayed once. If you messed up and didn't copy it, make a new one.
 3. Click on the name of your fleet (balenaRancher) in the side-bar and then click on `Variables`. We are going to create a Fleet Variable for your API Key 
-4. Click the `Add variable` button and create a variable with the name `API_KEY` and paste the `api key` that you copied in step #2, to the value
+4. Click the `Add variable` button and create a variable with the name `API_KEY` and paste the `api key` that you copied in step 2, to the value
 5. Add a device to your new fleet.
 
 ### balenaRancher setup 
