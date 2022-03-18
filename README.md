@@ -1,7 +1,8 @@
 # <img src="logo.png" alt="rancher steer" width="60" /> balenaRancher
 
  ### ### Updated ### ###
-The configuration method has been updated! Now you just need to get an [API Key](https://dashboard.balena-cloud.com/preferences/access-tokens) from the balenaCloud console and add it as a Fleet Variable. When the Rancher server starts up it will create the required K3S_TOKEN and K3S_URL Fleet Variables for you!
+_The configuration method has been updated! Now you just need to get an [API Key](https://dashboard.balena-cloud.com/preferences/access-tokens) from the balenaCloud console and add it as a Fleet Variable. When the Rancher server starts up it will create the required K3S_TOKEN and K3S_URL Fleet Variables for you!_
+___
 
 Use balenaRancher to easily deploy a Raspberry Pi4 based kubernetes cluster with a Rancher server and k3s worker nodes. The deployment is slightly more complex than your typical BalenaCloud deployment... but this is kubernetes, so it's never 'easy'!
 
