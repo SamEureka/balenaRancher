@@ -1,0 +1,26 @@
+name: Balena Rancher
+joinable: False
+description: >-
+  Use balenaRancher to easily deploy a Raspberry Pi4 based kubernetes cluster with a Rancher server and k3s worker nodes. 
+  The deployment is slightly more complex than your typical BalenaCloud deployment... but this is kubernetes, so it's never 'easy'!
+
+type: sw.application
+assets:
+  repository:
+    type: blob.asset
+    data:
+      url: 'https://github.com/SamEureka/balenaRancher'
+  logo:
+    type: blob.asset
+    data:
+      url: >-
+        https://raw.githubusercontent.com/SamEureka/balenaRancher/main/logo.png
+data:
+  applicationEnvironmentVariables:
+    - K3S_TOKEN=
+    - K3S_URL=
+    - CATTLE_BOOTSTRAP_PASSWORD=b@13n4!
+  defaultDeviceType: intel-nuc
+  supportedDeviceTypes:
+    - intel-nuc
+version: 2.0.4
