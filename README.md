@@ -1,7 +1,9 @@
 # <img src="logo.png" alt="rancher steer" width="60" /> balenaRancher
 
  ### ### Updated ### ###
-_The configuration method has been updated! Now you just need to get an [API Key](https://dashboard.balena-cloud.com/preferences/access-tokens) from the balenaCloud console and add it as a Fleet Variable. When the Rancher server starts up it will create the required K3S_TOKEN and K3S_URL Fleet Variables for you!_
+_ AMD64 Supported!!! You can now add Intel-Nuc and generic AMD64 based "Ranch Hands" to your k3s cluster. Due to limitations in Balena Fleet configurations you will need to have a seperate fleet to contain your AMD64 devices. But it is easy to copy over the proper variables to have them automatically join your existing Raspberry Pi Rancher cluster. I have tested this extensivly with Libvirt/QEMU virtual devices and it works very well. You can run ARM64 or AMD64 based images in the same cluster._ 
+
+_The configuration method has also been updated! Now you just need to get an [API Key](https://dashboard.balena-cloud.com/preferences/access-tokens) from the balenaCloud console and add it as a Fleet Variable. When the Rancher server starts up it will create the required K3S_TOKEN and K3S_URL Fleet Variables for you!_
 ___
 
 Use balenaRancher to easily deploy a Raspberry Pi4 based kubernetes cluster with a Rancher server and k3s worker nodes. The deployment is slightly more complex than your typical BalenaCloud deployment... but this is kubernetes, so it's never 'easy'!
@@ -41,6 +43,17 @@ _*these are the barebones instructions to get you started... better instructions
 4. Log into balenaCloud console and find the device you want to use for your worker node. Pin the device to the release tagged `ranch-hand` ([pinning device to release](https://www.balena.io/docs/learn/deploy/release-strategy/release-policy/#pin-device-to-a-release))
 5. When the ranch-hand node is done initiallizing, you should see an additional node in the Rancher server UI.
 6. You can additional nodes by provisioning a device and pinning the 'ranch-hand' release to the device. It will automatically join the rancher cluster.
+
+#### AMD64 Ranch-Hand worker node setup
+_IMPORTANT_ AMD64 devices *CANNOT* be in the same fleet with ARM64 devices. You will need to [create a new fleet](https://www.balena.io/docs/learn/getting-started/raspberrypi3/nodejs/#create-a-fleet) to contain the AMD64 based Ranch Hands. I named mine balenaRancherAMD and the instructions below use the same name. 
+
+1. [Add](https://www.balena.io/docs/learn/getting-started/raspberrypi3/nodejs/#add-your-first-device) a device to your balenaRancherAMD fleet. You will want to select Intel-Nuc or Genericx86-64-ext as the device type.
+2. Copy the API_KEY, K3S_TOKEN, and K3S_URL variables from your balenaRancher fleet.
+2. In the balenaRancher repo, change directory to the ranch-hand-amd64 directory `cd ranch-hand-amd64`
+3. Use the balena-cli to push a release for your worker-nodes. In this example the fleet is called balenaRancherAMD. `balena push balenaRancherAMD --release-tag ranch-hand-amd64 --draft` again, it is important to use the `--release-tag` and `--draft` flags to make sure that you can identify the correct release and prevent the ranch-hand-amd64 release from automatically installing to your server.
+4. Log into balenaCloud console and find the device you want to use for your worker node. Pin the device to the release tagged `ranch-hand-amd64` ([pinning device to release](https://www.balena.io/docs/learn/deploy/release-strategy/release-policy/#pin-device-to-a-release))
+5. When the ranch-hand-amd64 node is done initiallizing, you should see an additional node in the Rancher server UI.
+6. You can additional nodes by provisioning a device and pinning the 'ranch-hand-amd64' release to the device. It will automatically join the rancher cluster.
 
 ### Note:
 <s>When the worker nodes (ranch-hands) reboot, they don't always re-join the cluster correctly. You may have to delete duplicate nodes in the Rancher UI. This isn't a desired behavior and I'm working on fixing it.</s> [Fixed](https://github.com/SamEureka/balenaRancher/pull/5)

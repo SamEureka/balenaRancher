@@ -13,4 +13,4 @@ curl -s -X PATCH --header "Content-Type:application/json" \
   "$BALENA_SUPERVISOR_ADDRESS/v1/device/host-config?apikey=$BALENA_SUPERVISOR_API_KEY" >/dev/null
 
 echo "Starting k3s on ${HOSTNAME}, connecting to ${K3S_URL}"
-/opt/k3s/k3s-arm64 agent
+/opt/k3s/k3s agent

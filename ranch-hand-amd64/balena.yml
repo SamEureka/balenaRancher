@@ -20,7 +20,9 @@ data:
     - K3S_TOKEN=
     - K3S_URL=
     - CATTLE_BOOTSTRAP_PASSWORD=b@13n4!
-  defaultDeviceType: raspberrypi4-64
+  defaultDeviceType: intel-nuc
   supportedDeviceTypes:
-    - raspberrypi4-64
+    - genericx86-64-ext
+    - generic
+    - intel-nuc
 version: 2.0.6
