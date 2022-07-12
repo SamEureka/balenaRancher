@@ -22,5 +22,7 @@ data:
     - CATTLE_BOOTSTRAP_PASSWORD=b@13n4!
   defaultDeviceType: intel-nuc
   supportedDeviceTypes:
+    - genericx86-64-ext
+    - generic
     - intel-nuc
 version: 2.0.6
