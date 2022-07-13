@@ -1,7 +1,7 @@
 # <img src="logo.png" alt="rancher steer" width="60" /> balenaRancher
 
  ### ### Updated ### ###
-_ AMD64 Supported!!! You can now add Intel-Nuc and generic AMD64 based "Ranch Hands" to your k3s cluster. Due to limitations in Balena Fleet configurations you will need to have a seperate fleet to contain your AMD64 devices. But it is easy to copy over the proper variables to have them automatically join your existing Raspberry Pi Rancher cluster. I have tested this extensivly with Libvirt/QEMU virtual devices and it works very well. You can run ARM64 or AMD64 based images in the same cluster._ 
+_AMD64 Supported!!! You can now add Intel-Nuc and generic AMD64 based "Ranch Hands" to your k3s cluster. Due to limitations in Balena Fleet configurations you will need to have a seperate fleet to contain your AMD64 devices. But it is easy to copy over the proper variables to have them automatically join your existing Raspberry Pi Rancher cluster. I have tested this extensivly with Libvirt/QEMU virtual devices and it works very well. You can run ARM64 or AMD64 based images in the same cluster._ 
 
 _The configuration method has also been updated! Now you just need to get an [API Key](https://dashboard.balena-cloud.com/preferences/access-tokens) from the balenaCloud console and add it as a Fleet Variable. When the Rancher server starts up it will create the required K3S_TOKEN and K3S_URL Fleet Variables for you!_
 ___
