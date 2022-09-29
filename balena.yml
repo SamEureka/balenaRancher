@@ -3,7 +3,12 @@ joinable: False
 description: >-
   Use balenaRancher to easily deploy a Raspberry Pi4 based kubernetes cluster with a Rancher server and k3s worker nodes. 
   The deployment is slightly more complex than your typical BalenaCloud deployment... but this is kubernetes, so it's never 'easy'!
-
+post-provisioning: >-
+  **NOTE!** The "Deploy" button on this page will work to create a new fleet but you will need to follow the ["Install/Config/Deploy"](https://github.com/SamEureka/balenaRancher#install--config--deploy)
+  instructions in the GitHub repo README for the configuration scripts to run correctly. Pay specific attention to the API_KEY variable
+  instructions. Nothing will work without that fleet variable set correctly.
+  
+  If you hit a snag... [create an issue](https://github.com/SamEureka/balenaRancher/issues/new/choose) in the repo and I'll do my best to help get you sorted.
 type: sw.application
 assets:
   repository:
