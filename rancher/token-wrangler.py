@@ -1,5 +1,6 @@
-# balenaRancher/rancher/token-wrangler.py
-# Sam Dennon//2022
+## balenaRancher/rancher/token-wrangler.py
+## Sam Dennon//2022
+## Updated 01MAY2023 // Cleaned up api use to reduce calls
 
 import os
 import re
@@ -21,22 +22,24 @@ api = balena.Balena()
 appVariables = api.models.environment_variables.application
 device = api.models.device
 
-def generateURL(uuid, token):
-  api.auth.login_with_token(token)
+# Login API and store the token
+api.auth.login_with_token(token)
+auth_token = api.auth.token
+
+def generateURL(uuid):
   for ip_add in device.get_local_ip_address(uuid):
     if not re.search('10.42', ip_add):
       return 'https://{}:6443'.format(ip_add)
 
-def getAppVars(app_id, token):
-  api.auth.login_with_token(token)
+def getAppVars(app_id):
   return appVariables.get_all(app_id)
       
-def getVarId(app_id, token, var):
-  return [i['id'] for i in getAppVars(app_id, token) if i['name'] == var]
+def getVarId(app_id, var):
+  return [i['id'] for i in getAppVars(app_id) if i['name'] == var]
   
-def updateOrAddAppVar(app_id, token, var, var_val):
-  if var in [i['name'] for i in getAppVars(app_id, token)]:
-    appVariables.update(getVarId(app_id, token, var)[0], var_val)
+def updateOrAddAppVar(app_id, var, var_val):
+  if var in [i['name'] for i in getAppVars(app_id)]:
+    appVariables.update(getVarId(app_id, var)[0], var_val)
   else:
     appVariables.create(app_id, var, var_val)
 
@@ -45,7 +48,10 @@ while not exists(token_path):
 
 if isfile(token_path):
   var_val = open(token_path, 'r').read().strip()
-  updateOrAddAppVar(app_id, token, token_var_name, var_val)
-  updateOrAddAppVar(app_id, token, url_var_name, generateURL(uuid, token))
+  updateOrAddAppVar(app_id, token_var_name, var_val)
+  updateOrAddAppVar(app_id, url_var_name, generateURL(uuid))
 else:
   print('I done effed up, Sarge. There aint no file here...')
+
+# Logout API
+api.auth.logout(auth_token)
